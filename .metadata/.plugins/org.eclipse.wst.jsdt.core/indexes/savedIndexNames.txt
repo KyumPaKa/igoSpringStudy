@@ -1,11 +1,1 @@
 INDEX VERSION 1.4+C:\Users\IGO\Desktop\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-390734358.index
-2004686187.index
-769406243.index
-2403510289.index
-3914759718.index
-3914759718.index
-2365913223.index
-1743640918.index
-4024460164.index
-2271448510.index

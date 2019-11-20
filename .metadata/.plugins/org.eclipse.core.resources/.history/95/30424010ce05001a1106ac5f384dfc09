@@ -1,7 +1,0 @@
-package com.example.spring02.model.memo.dao;
-
-public interface MemoDAO {
-
-	@Select("select * from memo order by idx desc")
-	public List<MemoDTO> list();
-}

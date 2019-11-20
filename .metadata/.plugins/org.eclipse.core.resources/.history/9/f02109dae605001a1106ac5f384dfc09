@@ -1,6 +1,0 @@
-package com.example.spring02.model.shop.dto;
-
-public class ProductDTO {
-
-	private 
-}

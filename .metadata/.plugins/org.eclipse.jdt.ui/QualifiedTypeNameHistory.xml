@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
-<fullyQualifiedTypeName name="org.jfree.chart.ChartFactory"/>
 <fullyQualifiedTypeName name="org.jfree.chart.plot.PlotOrientation"/>
 <fullyQualifiedTypeName name="com.itextpdf.text.Font"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
@@ -12,7 +10,6 @@
 <fullyQualifiedTypeName name="com.itextpdf.text.pdf.PdfWriter"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="com.itextpdf.text.Image"/>
-<fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="com.example.spring02.model.message.dao.MessageDAO"/>
 <fullyQualifiedTypeName name="com.example.spring02.model.message.dao.PointDAO"/>
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+<fullyQualifiedTypeName name="org.springframework.test.context.jdbc.Sql"/>
+<fullyQualifiedTypeName name="org.springframework.test.context.jdbc.Sql.ExecutionPhase"/>
 </qualifiedTypeNameHistroy>

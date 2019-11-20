@@ -1,5 +1,0 @@
-package com.example.spring01.model.dto;
-
-public class MemberDTO {
-
-}
