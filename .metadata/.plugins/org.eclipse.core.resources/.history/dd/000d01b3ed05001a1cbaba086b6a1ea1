@@ -1,0 +1,25 @@
+package com.example.spring02.controller.shop;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.spring02.service.shop.ProductService;
+
+@Controller // 현재 클래스를 스프링에서 관리하는 Controller Bean으로 설정
+@RequestMapping("/shop/product/*") // 공통적인 url mapping
+public class ProductController {
+
+	@Inject
+	ProductService productService; // 스프링에서 만든 서비스 객체를 연결시킴
+	
+	@RequestMapping("/shop/product/list.do") // 세부적인 url mapping
+	public ModelAndView list(ModelAndView mav) {
+		mav.setViewName("/shop/product_list"); // 이동할 페이지 이름
+		mav.addObject("list", productService.listProduct()); // 데이터 저장
+		return mav; // 페이지 이동
+	}
+	
+}

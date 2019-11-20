@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<%@ include file="../include/header.jsp" %>
+<script type="text/javascript">
+function product_write(){
+	var product_name = document.form1.product_name.value;
+	var price = document.form1.price.value;
+	var description = document.form1.description.value;
+	if(product_name == ""){
+		alert("상품명을 입력하세요");
+		document.form1.product_name.focus();
+		return;
+	}
+	if(price == ""){
+		alert("가격을 입력하세요");
+		document.form1.price.focus();
+		return;
+	}
+	if(description == ""){
+		alert("상품설명을 임력하세요");
+		document.form1.description.focus();
+		return;
+	}
+	document.form1.action="${path}/shop/product/insert.do";
+	document.form1.submit();
+}
+</script>
+</head>
+<body>
+<%@ include file="../include/admin_menu.jsp" %>
+<h2>상품 등록</h2>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+package com.example.spring02.controller.jchart;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
+
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.spring02.service.chart.JFreeChartService;
+
+@Controller
+public class JFreeChartController {
+
+	@Inject
+	JFreeChartService chartService;
+	
+	@RequestMapping("chart1.do")
+	public void createChart1(HttpServletResponse response) {
+		try {
+			JFreeChart chart = chartService.createChart();
+			ChartUtils.writeChartAsPNG(response.getOutputStream(), chart, 900, 550);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

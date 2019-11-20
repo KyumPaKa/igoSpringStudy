@@ -1,0 +1,21 @@
+package com.example.spring02.service.pdf;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.example.spring02.service.shop.CartService;
+
+@Service
+public class PdfServiceImpl implements PdfService {
+
+	@Inject
+	CartService cartService;
+	
+	@Override
+	public String createPdf() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

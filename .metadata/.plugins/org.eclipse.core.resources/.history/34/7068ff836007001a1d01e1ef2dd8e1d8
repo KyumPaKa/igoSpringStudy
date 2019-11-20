@@ -1,0 +1,14 @@
+package com.example.spring02.interceptor;
+
+import com.example.spring02.model.admin.AdminDAO;
+import com.example.spring02.model.member.dto.MemberDTO;
+
+public class dd implements AdminDAO {
+
+	@Override
+	public String loginCheck(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

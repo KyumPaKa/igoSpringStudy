@@ -1,0 +1,26 @@
+package com.example.spring02.service.chart;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.json.simple.JSONObject;
+import org.springframework.stereotype.Service;
+
+import com.example.spring02.model.shop.dto.CartDTO;
+import com.example.spring02.service.shop.CartService;
+
+@Service
+public class GoogleChartServiceImpl implements GoogleChartService {
+
+	@Inject
+	CartService cartService;
+	
+	// { "변수명" : [{},{},{} ], "변수명":"값"}
+	@Override
+	public JSONObject getChartData() {
+		List<CartDTO> items = cartService.cartMoney();
+		return null;
+	}
+
+}

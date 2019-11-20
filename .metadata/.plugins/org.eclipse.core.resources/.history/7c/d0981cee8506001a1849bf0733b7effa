@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<%@ include file="../include/header.jsp" %>
+<script type="text/javascript">
+$(function(){
+	$("#btnList").click(function(){
+		location.href="${path}/shop/product/list.do";
+	});
+	$("#btnDelete").click(function(){
+		if(confirm("장바구니를 비우시겠습니까?")){
+			location.href="${path}/shop/shop/deleteAll.do";
+		}
+	});
+});
+</script>
+</head>
+<body>
+<%@ include file="../include/menu.jsp" %>
+<h2>장바구니</h2>
+<c:choose>
+	<c:when test="${map.count == 0}">
+	장바구니가 비었습니다.
+	</c:when>
+</c:choose>
+</body>
+</html>

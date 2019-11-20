@@ -1,0 +1,21 @@
+package com.example.spring02.controller.upload;
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class uploadController {
+
+	private static final Logger logger = LoggerFactory.getLogger(uploadController.class);
+	
+	// xml에 설정된 리소스 참조
+	// bean의 id가 uploadPath인 태그를 참조
+	@Resource(name = "uploadPath")
+	String uploadPath;
+	
+	@RequestMapping(value = "/upload/uploadForm")
+	
+}

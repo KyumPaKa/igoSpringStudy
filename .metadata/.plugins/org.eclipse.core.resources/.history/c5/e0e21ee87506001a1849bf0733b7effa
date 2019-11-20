@@ -1,0 +1,13 @@
+package com.example.spring02.model.member.dao;
+
+import com.example.spring02.model.member.dto.MemberDTO;
+
+public class MemberDAOImpl implements MemberDAO {
+
+	@Override
+	public String loginCheck(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.example.spring02.service.chart;
+
+import org.json.simple.JSONObject;
+
+public class GoogleChartServiceImpl implements GoogleChartService {
+
+	@Override
+	public JSONObject getChartData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

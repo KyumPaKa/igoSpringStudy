@@ -1,0 +1,13 @@
+package com.example.spring02.service.email;
+
+import com.example.spring02.model.email.EmailDTO;
+
+public class EmailServiceImpl implements EmailService {
+
+	@Override
+	public void sendMail(EmailDTO dto) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

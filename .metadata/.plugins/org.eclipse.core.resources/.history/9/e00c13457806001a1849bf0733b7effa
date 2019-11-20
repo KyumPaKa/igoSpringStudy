@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<%@ include file="../include/header.jsp" %>
+<style>
+$(function(){
+	$("#btnLogin").click(function(){
+		var userid=$("#userid").val();
+		var passwd=$("#passwd").val();
+		if(userid==""){
+			alert("아이디를 입력하세요.");
+			$("#userid").focus();
+			return;
+		}
+		if(passwd==""){
+			alert("비밀번호를 입력하세요.");
+			$("#passwd").focus();
+			return;
+		}
+		document.form1.action="${path}/member/login_check.do";
+		document.form1.submint();		
+	});
+});
+</style>
+</head>
+<body>
+<%@ include file="../include/menu.jsp" %>
+
+</body>
+</html>

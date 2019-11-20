@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.memo{MemoService.java[MemoService" modifiers="513" timestamp="1573619123618"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.shop.dao{ProductDAO.java[ProductDAO" modifiers="513" timestamp="1573632132120"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.shop{ProductService.java[ProductService" modifiers="513" timestamp="1573632566464"/>
+<typeInfo handle="=spring02/C:\/Program Files\/Java\/jdk1.8.0_231\/jre\/lib\/jfr.jar&lt;oracle.jrockit.jfr(ProducerDescriptor.class[ProducerDescriptor" modifiers="1050113" timestamp="1573517766664"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.member.dao{MemberDAO.java[MemberDAO" modifiers="513" timestamp="1573691346786"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.member{MemberService.java[MemberService" modifiers="513" timestamp="1573691621121"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.shop.dao{CartDAO.java[CartDAO" modifiers="513" timestamp="1573695799736"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.shop{CartService.java[CartService" modifiers="513" timestamp="1573696619504"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.admin{AdminService.java[AdminService" modifiers="513" timestamp="1573707480467"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.pdf{PdfService.java[PdfService" modifiers="513" timestamp="1573716785892"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.chart{GoogleChartService.java[GoogleChartService" modifiers="513" timestamp="1573721924497"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.chart{JFreeChartService.java[JFreeChartService" modifiers="513" timestamp="1573779056823"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.message{MessageService.java[MessageService" modifiers="513" timestamp="1573785645520"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.message.dao{MessageDAO.java[MessageDAO" modifiers="513" timestamp="1573784988300"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.message.dao{PointDAO.java[PointDAO" modifiers="513" timestamp="1573785409538"/>
+<typeInfo handle="=spring02/C:\/Users\/IGO\/.m2\/repository\/org\/springframework\/spring-webmvc\/5.1.8.RELEASE\/spring-webmvc-5.1.8.RELEASE.jar&lt;org.springframework.web.servlet(HandlerInterceptor.class[HandlerInterceptor" modifiers="1537" timestamp="1573524187756"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.admin{AdminDAO.java[AdminDAO" modifiers="513" timestamp="1573707569961"/>
+<typeInfo handle="=spring02/C:\/Users\/IGO\/.m2\/repository\/org\/springframework\/spring-webmvc\/5.1.8.RELEASE\/spring-webmvc-5.1.8.RELEASE.jar&lt;org.springframework.web.servlet.handler(HandlerInterceptorAdapter.class[HandlerInterceptorAdapter" modifiers="1057" timestamp="1573524187756"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.email{EmailService.java[EmailService" modifiers="513" timestamp="1574040161476"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.board.dao{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1574139190612"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.board{BoardService.java[BoardService" modifiers="513" timestamp="1574139050743"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.service.board{ReplyService.java[ReplyService" modifiers="513" timestamp="1574146092295"/>
+<typeInfo handle="=spring02/src\/main\/java&lt;com.example.spring02.model.board.dao{ReplyDAO.java[ReplyDAO" modifiers="513" timestamp="1574146092308"/>
+</typeInfoHistroy>

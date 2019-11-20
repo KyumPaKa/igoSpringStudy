@@ -1,0 +1,22 @@
+package com.example.spring02.controller.memo;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+
+import com.example.spring02.service.memo.MemoService;
+
+@Controller
+public class MemoController {
+
+	@Inject
+	MemoService memoService;
+	
+	@RequestMapping("/memo/list.do")
+	public ModelAndView list(MdelAndView mav) {
+		List<MemoDTO> items = memoService.list();
+		mav.setViewName("memo/memo_list");
+		mav.addObject("list", items);
+	}
+	
+}

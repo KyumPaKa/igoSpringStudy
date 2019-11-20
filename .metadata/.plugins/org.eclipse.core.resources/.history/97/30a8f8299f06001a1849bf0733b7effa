@@ -1,0 +1,29 @@
+package com.example.spring02.controller.admin;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.spring02.service.admin.AdminService;
+
+@Controller
+public class AdminController {
+
+	@Inject
+	AdminService adminService;
+	
+	@RequestMapping("login.do")
+	public String login() {
+		return "admin/login";
+	}
+	
+	@RequestMapping("login_check.do")
+	pulbic ModelAndView login_check(Member dto, HttpSession session, ModelAndView mav) {
+		String name = adminService.loginCheck(dto);
+		
+		
+		return mav;
+	}
+	
+}

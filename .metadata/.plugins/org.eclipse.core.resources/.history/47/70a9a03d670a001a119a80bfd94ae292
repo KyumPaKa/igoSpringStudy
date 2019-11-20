@@ -1,0 +1,29 @@
+package com.example.spring02.service.board;
+
+public class Pager {
+
+	public static final int PAGE_SCALE = 5; // 페이지당 게시물 수
+	public static final int BLOCK_SCALE = 5; // 화면당 페이지 수
+	private int curPage; // 현재 페이지
+	private int prevPage; // 이전 페이지
+	private int nextPage; // 다음 페이지
+	private int totPage; // 전체 페이지 갯수
+	private int totBlock; // 전체 페이지 블록 갯수
+	private int curBlock; // 현재 페이지 블록
+	private int prevBlock; // 이전 페이지 블록
+	private int nextBlock; // 다음 페이지 블록
+	// where rn between #{start} and #{end}
+	private int pageBegin; //  #{start}
+	private int pageEnd; // #{end}
+	// [이전] blockBegin 42 43 44 45 46 47 48 49 blockEnd [다음]
+	private int blockBegin; // 현재 페이지 블록의 시작번호
+	private int blockEnd; // 현재 페이지 블록의 끝번호
+	
+	// 생성자
+	// Pager(레코드 갯수, 현재 페이지 번호)
+	public Page(int count, int curPage) {
+		curBlock = 1; // 현재 페이지 블록 번호
+		this.curPage = curPage;
+	}
+	
+}

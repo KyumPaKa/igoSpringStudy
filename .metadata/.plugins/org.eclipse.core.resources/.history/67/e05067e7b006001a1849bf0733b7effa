@@ -1,0 +1,16 @@
+package com.example.spring02.controller.pdf;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/pdf/*")
+public class PdfController {
+
+	@Inject
+	PdfService pdfService;
+	
+	
+}
