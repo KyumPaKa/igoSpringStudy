@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="survey">
+	
+	<select id="show_survey" resultType="com.example.spring05.model.dto.SurveyDTO">
+	select * from survey where survey_idx = #{survey_idx}
+	</select>
+	
+	<insert id="save_answer">
+	insert into answer(survey_idx, num) values (#{survey_idx}, #{num})
+	</insert>
+	
+	<select id="show_result" resultType="com.example.spring05.model.dto.AnswerDTO">
+	select
+		survey_idx, num, count(num) sum_num,
+		round(
+			(select count(*) from answer
+			where survey_idx=a.survey_idx and num=a.num) * 100.0
+			/ (select count(*) from answer
+				where survey_idx=a.survey_idx),1) rate
+	from answer a
+	where survey_idx = #{survey_idx}
+	group by survey_idx, num
+	order by num;
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

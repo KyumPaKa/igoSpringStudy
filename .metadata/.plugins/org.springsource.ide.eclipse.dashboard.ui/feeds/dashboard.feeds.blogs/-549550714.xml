@@ -5,7 +5,7 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-11-19T20:41:47Z</updated>
+  <updated>2019-11-19T20:41:00Z</updated>
   <entry>
     <title>Spring Cloud Greenwich.SR4 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2019/11/19/spring-cloud-greenwich-sr4-released" />
@@ -14,14 +14,13 @@
       <name>Ryan Baxter</name>
     </author>
     <id>tag:spring.io,2019-11-19:3877</id>
-    <updated>2019-11-19T20:41:47Z</updated>
+    <updated>2019-11-19T20:41:00Z</updated>
     <content type="html">&lt;p&gt;On behalf of the community, I am pleased to announce that the Service Release 4 (SR4) of the &lt;a href="https://cloud.spring.io"&gt;Spring Cloud Greenwich&lt;/a&gt; Release Train is available today. The release can be found in &lt;a href="https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-dependencies/Greenwich.SR4/"&gt;Maven Central&lt;/a&gt;. You can check out the Greenwich &lt;a href="https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Greenwich-Release-Notes"&gt;release notes for more information&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#notable-changes-in-the-greenwich-release-train" class="anchor" name="notable-changes-in-the-greenwich-release-train"&gt;&lt;/a&gt;Notable Changes in the Greenwich Release Train&lt;/h2&gt;
 &lt;p&gt;Spring Cloud Greenwich.SR4 is built upon Spring Boot 2.1.10.RELEASE.&lt;/p&gt;&lt;h3&gt;&lt;a href="#spring-cloud-kubernetes" class="anchor" name="spring-cloud-kubernetes"&gt;&lt;/a&gt;Spring Cloud Kubernetes&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-kubernetes/milestone/16?closed=1"&gt;Bug Fixes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-commons" class="anchor" name="spring-cloud-commons"&gt;&lt;/a&gt;Spring Cloud Commons&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://cloud.spring.io/spring-cloud-static/Greenwich.SR4/single/spring-cloud.html#_enablediscoveryclient"&gt;Reactive &lt;code&gt;DiscoveryClient&lt;/code&gt; implementation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-commons/milestone/65?closed=1"&gt;Bug Fixes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-openfeign" class="anchor" name="spring-cloud-openfeign"&gt;&lt;/a&gt;Spring Cloud Openfeign&lt;/h3&gt;
 &lt;ul&gt;
@@ -248,7 +247,7 @@ compile &amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-eureka-c
       <name>Josh Long</name>
     </author>
     <id>tag:spring.io,2019-11-19:3875</id>
-    <updated>2019-11-19T03:28:22Z</updated>
+    <updated>2019-11-19T03:28:00Z</updated>
     <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another of &lt;em&gt;This Week in Spring&lt;/em&gt;. We&amp;rsquo;ve got a lot to cover, so let&amp;rsquo;s get to it!&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href="https://spring.io/blog/2019/11/18/spring-data-moore-sr2-and-lovelace-sr13-available"&gt;Spring Data Moore SR2 and Lovelace SR13 available&lt;/a&gt;&lt;/li&gt;
@@ -257,8 +256,7 @@ compile &amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-eureka-c
   &lt;li&gt;&lt;a href="https://spring.io/blog/2019/11/14/spring-security-oauth-2-4-0-2-3-8-released"&gt;Spring Security OAuth 2.4.0, 2.3.8 Released&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://spring.io/blog/2019/11/14/spring-security-oauth-2-0-roadmap-update"&gt;Spring Security OAuth 2.0 Roadmap Update&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://spring.io/blog/2019/11/12/spring-cloud-hoxton-rc2-released"&gt;Spring Cloud Hoxton.RC2 Released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/SpringData/status/1196458944396484609"&gt;https://twitter.com/SpringData/status/1196458944396484609&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=4-vew8ck_6g"&gt;My three hour masterclass on all things Reactive Spring from Devoxx Belgium 2019 is now online&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=4-vEW8Ck_6g&amp;list=PLVIwmzpq86Lnx2WvVbm4tmo9J4XA5zSXb&amp;index=25&amp;t=6s"&gt;My three hour masterclass on all things Reactive Spring from Devoxx Belgium 2019 is now online&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://www.rabbitmq.com/blog/2019/11/13/this-month-in-rabbitmq-november-2019/"&gt;This Month in RabbitMQ: November 2019&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://atos.net/en/2019/press-release_2019_10_09/289359"&gt;Atos Delivers Faster Cloud Adoption with New SyntBots Accelerators for Pivotal Platform&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://piotrminkowski.wordpress.com/2019/11/15/rate-limiting-in-spring-cloud-gateway-with-redis/"&gt;A nice post on doing rate limiting with Spring Cloud Gateway&lt;/a&gt;&lt;/li&gt;
