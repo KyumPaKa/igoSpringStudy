@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Thu Nov 21 14:44:19 KST 2019
+#Fri Nov 22 13:20:07 KST 2019
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\IGO\\.m2\\repository\\org\\springframework\\spring-web\\5.1.4.RELEASE\\spring-web-5.1.4.RELEASE.jar=WEB-INF/lib/spring-web-5.1.4.RELEASE.jar
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\IGO\\.m2\\repository\\org\\springframework\\spring-web\\5.1.8.RELEASE\\spring-web-5.1.8.RELEASE.jar=WEB-INF/lib/spring-web-5.1.8.RELEASE.jar

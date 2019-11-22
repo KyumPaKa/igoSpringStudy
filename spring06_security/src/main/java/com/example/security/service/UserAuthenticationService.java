@@ -37,7 +37,7 @@ public class UserAuthenticationService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userid) throws UsernameNotFoundException {
 		Map<String, Object> user = sqlSession.selectOne("user.selectUser", userid);
-		System.out.println("loadUserByUsername:" + user);
+		System.out.println("loadUserByUsername : " + user);
 		if(user == null)
 			throw new UsernameNotFoundException(userid);
 		List<GrantedAuthority> authority = new ArrayList<>();

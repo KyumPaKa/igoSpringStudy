@@ -4,7 +4,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
-<mapper namespace="sample">
+<mapper namespace="user">
+	
+	<insert id="insertUser">
+	insert into users values(#{userid}, #{passwd}, #{name}, 1, #{authority})
+	</insert>
+	
+	<select id="selectUser" resultType="java.util.Map">
+	select userid as username, passwd as password, name, enabled, authority from users where userid = #{userid}
+	</select>
 	
 </mapper>
 
