@@ -2,6 +2,9 @@ package com.example.spring03;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,9 +22,9 @@ public class Spring03BootApplication {
 	// <bean>태그에 대응되는 코드 설정
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
-		SqlSessionFatory bean = new SqlSessionFactoryBean();
+		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		// 데이터소스 설정(application.properties 참조)
-		bean.setDatSource(dataSource);
+		bean.setDataSource(dataSource);
 		// xml mapper를 사용할 경우 아래 코드 추가
 		// import org.springframework.core.io.Resource;
 		// Resource[] res = new PathMatchingResourcePatternResolver()

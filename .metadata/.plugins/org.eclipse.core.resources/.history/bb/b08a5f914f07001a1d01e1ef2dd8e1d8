@@ -1,5 +1,0 @@
-package com.example.spring02.model.message.dto;
-
-public class MessageDTO {
-
-}

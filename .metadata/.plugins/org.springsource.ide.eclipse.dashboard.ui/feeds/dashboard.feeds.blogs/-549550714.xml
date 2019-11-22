@@ -5,7 +5,24 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-11-21T15:43:34Z</updated>
+  <updated>2019-11-22T07:16:08Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Spring Security engineer Ria Stein</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/11/22/a-bootiful-podcast-spring-security-engineer-ria-stein" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2019-11-22:3879</id>
+    <updated>2019-11-22T07:16:08Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, Josh Long talks to Spring Security engineer Ria Stein. Ria is a new, but impactful, engineer on the Spring Security team working on things like Josh&amp;rsquo;s beloved lambda DSL.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://spring.io/team/eleftherias"&gt;Eleftheria Stein-Kousathana&amp;rsquo;s page&lt;/a&gt; on the Spring team roster&lt;/li&gt;
+  &lt;li&gt;Ria just published a post &lt;a href="https://spring.io/blog/2019/11/21/spring-security-lambda-dsl"&gt;on the Spring Security lambda DSL&lt;/a&gt; on which she worked. Definitely worth a read!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/716771506&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Security - Lambda DSL</title>
     <link rel="alternate" href="https://spring.io/blog/2019/11/21/spring-security-lambda-dsl" />
@@ -1225,23 +1242,6 @@ A dependency for this artifact is this:&lt;/p&gt;
   &lt;li&gt;Spring Data Elasticsearch 3.1.12 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-elasticsearch/3.1.12.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/3.1.12.RELEASE/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/3.1.12.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/3.1.12.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring Data Couchbase 3.1.12 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-couchbase/3.1.12.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/3.1.12.RELEASE/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/3.1.12.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/3.1.12.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.2.1 and 5.1.7 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/11/04/spring-security-5-2-1-and-5-1-7-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Josh Cummings</name>
-    </author>
-    <id>tag:spring.io,2019-11-04:3860</id>
-    <updated>2019-11-04T20:55:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I&amp;#8217;m pleased to announce the release of Spring Security 5.2.1 (&lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.2.1.RELEASE"&gt;release notes&lt;/a&gt;) and 5.1.7 (&lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.1.7.RELEASE"&gt;release notes&lt;/a&gt;). These releases deliver bug fixes along with some minor improvements. Users are encouraged to update to the latest patch release.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
