@@ -12,10 +12,8 @@ public class Pager {
 	private int curBlock; // 현재 페이지 블록
 	private int prevBlock; // 이전 페이지 블록
 	private int nextBlock; // 다음 페이지 블록
-	// where rn between #{start} and #{end}
-	private int pageBegin; //  #{start}
-	private int pageEnd; // #{end}
-	// [이전] blockBegin 42 43 44 45 46 47 48 49 blockEnd [다음]
+	private int pageBegin; //  처음 블록
+	private int pageEnd; // 마지막 블록
 	private int blockBegin; // 현재 페이지 블록의 시작번호
 	private int blockEnd; // 현재 페이지 블록의 끝번호
 	

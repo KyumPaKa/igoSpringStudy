@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.itextpdf.text.Image"/>
-<fullyQualifiedTypeName name="com.example.spring02.model.message.dao.MessageDAO"/>
 <fullyQualifiedTypeName name="com.example.spring02.model.message.dao.PointDAO"/>
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
 <fullyQualifiedTypeName name="org.slf4j.Logger"/>
 <fullyQualifiedTypeName name="org.aspectj.lang.JoinPoint"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.aspectj.lang.ProceedingJoinPoint"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.handler.HandlerInterceptorAdapter"/>
 <fullyQualifiedTypeName name="java.util.UUID"/>
@@ -46,7 +43,6 @@
 <fullyQualifiedTypeName name="org.springframework.test.context.jdbc.Sql"/>
 <fullyQualifiedTypeName name="org.springframework.test.context.jdbc.Sql.ExecutionPhase"/>
 <fullyQualifiedTypeName name="com.example.spring05.model.dao.SurveyDAO"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="org.springframework.security.core.authority.SimpleGrantedAuthority"/>
 <fullyQualifiedTypeName name="org.springframework.security.web.access.AccessDeniedHandler"/>
@@ -56,8 +52,12 @@
 <fullyQualifiedTypeName name="org.springframework.security.access.AccessDeniedException"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Delete"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="org.springframework.data.mongodb.core.query.Query"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.example.spring04.model.memo.dao.MemoDAO"/>
 </qualifiedTypeNameHistroy>

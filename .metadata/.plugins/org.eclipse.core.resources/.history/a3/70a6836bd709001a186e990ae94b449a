@@ -1,7 +1,0 @@
-package com.example.spring02.service.board;
-
-public interface BoardService {
-
-	
-	
-}

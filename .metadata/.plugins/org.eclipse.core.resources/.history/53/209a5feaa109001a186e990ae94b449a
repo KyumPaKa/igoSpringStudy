@@ -1,7 +1,0 @@
-package com.example.spring02.service.email;
-
-public interface EmailService {
-
-	public void sendMail(EmailDTO dto);
-	
-}
