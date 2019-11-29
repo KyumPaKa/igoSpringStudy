@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="test"/>
+		<item key="selection" value="bd"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
+			<item value="gd"/>
+			<item value="dto"/>
+			<item value="pageEnd"/>
+			<item value="pageBegin"/>
+			<item value="prevBlock"/>
+			<item value="이전"/>
+			<item value="Pager"/>
 			<item value="test"/>
-			<item value="aspectj"/>
-			<item value="context"/>
-			<item value="jack"/>
-			<item value="login"/>
-			<item value="deni"/>
-			<item value="userService"/>
-			<item value="ojdbc"/>
 		</list>
 		<list key="replacehistory">
+			<item value="bd"/>
+			<item value="suggestionDTO"/>
 			<item value="/"/>
 		</list>
 	</section>

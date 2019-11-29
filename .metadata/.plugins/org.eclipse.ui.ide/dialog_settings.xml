@@ -71,6 +71,9 @@
 		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\IGO\Desktop\workspace\board"/>
+			<item value="D:\새 폴더\project_board"/>
+			<item value="D:\Project\board"/>
 			<item value="C:\Users\IGO\Desktop\workspace\sample"/>
 			<item value="C:\Users\IGO\Desktop\sample"/>
 		</list>

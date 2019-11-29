@@ -1,5 +1,0 @@
-package com.example.spring02.model.board.dto;
-
-public class ReplyDTO {
-
-}

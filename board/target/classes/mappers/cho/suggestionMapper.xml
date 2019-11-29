@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="suggestion">
+	
+	<select id="list" resultType="com.igo.board.model.cho.dto.suggestion.SuggestionDTO">
+	select * from (
+	    select rownum rn, sgt.* from (
+	        select * from suggestion 
+	        <include refid="search" />
+	        order by sg_idx desc
+	    ) sgt order by rn
+	<![CDATA[
+	) where rn >= #{start} and rn <= #{end}
+	]]>
+	</select>
+	
+	<insert id="write">
+	<if test="sg_file == null">
+	insert into suggestion(sg_idx, sg_writer, sg_title, sg_content) 
+	values((select nvl(max(sg_idx),0)+1 from suggestion), #{sg_writer}, #{sg_title}, #{sg_content})
+	</if>	
+	<if test="sg_file != null">
+	insert into suggestion(sg_idx, sg_writer, sg_title, sg_content, sg_file) 
+	values((select nvl(max(sg_idx),0)+1 from suggestion), #{sg_writer}, #{sg_title}, #{sg_content}, #{sg_file})
+	</if>
+	</insert>
+	
+	<update id="update">
+	<if test="sg_file == null">
+	update suggestion set sg_title = #{sg_title}, sg_content = #{sg_content}, sg_updateDate = sysdate where sg_idx = #{sg_idx}
+	</if>
+	<if test="sg_file != null">
+	update suggestion set sg_title = #{sg_title}, sg_content = #{sg_content}, sg_updateDate = sysdate, sg_file = #{sg_file} where sg_idx = #{sg_idx}
+	</if>
+	</update>
+	
+	<delete id="delete">
+	delete from suggestion where sg_idx = #{sg_idx}
+	</delete>
+	
+	<select id="view" resultType="com.igo.board.model.cho.dto.suggestion.SuggestionDTO">
+	select * from suggestion where sg_idx = #{sg_idx}
+	</select>
+	
+	<select id="countArticle" resultType="int">
+	select count(*) from suggestion 
+	<include refid="search" />
+	</select>
+	
+	<sql id="search">
+	<choose>
+       	<when test="search_option == 'all'">
+       	where sg_writer like '%'||#{keyword}||'%' or sg_title like '%'||#{keyword}||'%' or sg_content like '%'||#{keyword}||'%' 
+       	</when>
+       	<otherwise>
+       	where ${search_option} like '%'||#{keyword}||'%' 
+       	</otherwise>	        
+    </choose>
+	</sql>
+	
+	<update id="increaseView">
+	update suggestion set sg_view = sg_view + 1 where sg_idx = #{sg_idx}
+	</update>
+	
+	<update id="increaseGood">
+	update suggestion set sg_good = sg_good + 1 where sg_idx = #{sg_idx}
+	</update>
+	
+	<update id="increaseBad">
+	update suggestion set sg_bad = sg_bad + 1 where sg_idx = #{sg_idx}
+	</update>
+	
+	<insert id="insertGoodBad">
+	insert into sg_goodbad(sg_gb_idx, sg_gb_refidx, sg_gb_ip, sg_gb_feel) values((select nvl(max(sg_dg_idx), 0) + 1 from sg_goodbad), #{sg_gb_refidx}, #{sg_gb_ip}, #{sg_gb_feel})
+	</insert>
+	
+	<delete id="deleteGoodBad">
+	delete from sg_goodbad where where sg_gb_ip = #{sg_gb_ip} and sg_gb_refidx = #{sg_gb_refidx}
+	</delete>
+	
+	<select id="selectGood" resultType="int">
+	select count(*) from sg_goodbad where sg_gb_ip = #{sg_gb_ip} and sg_gb_refidx = #{sg_gb_refidx} and sg_gb_feel = 'good'
+	</select>
+	
+	<select id="selectBad" resultType="int">
+	select count(*) from sg_goodbad where sg_gb_ip = #{sg_gb_ip} and sg_gb_refidx = #{sg_gb_refidx} and sg_gb_feel = 'bad'
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

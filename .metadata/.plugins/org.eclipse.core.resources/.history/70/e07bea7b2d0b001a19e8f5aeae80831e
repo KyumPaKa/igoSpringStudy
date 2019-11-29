@@ -1,5 +1,0 @@
-function checkImageType(fileName) {
-	var = pattern = /jpg|gif|png|jpeg/;
-	return fileName.match(pattern);
-}
-
