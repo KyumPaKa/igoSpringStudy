@@ -1,39 +1,40 @@
-package com.example.spring04.model.memo.dao;
+package com.example.spring04.service.memo;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+import com.example.spring04.model.memo.dao.MemoDAO;
 import com.example.spring04.model.memo.dto.MemoDTO;
 
+@Component("memoService")
 public class MemoServiceImpl implements MemoService {
 
+	MemoDAO memoDao;
+	
 	@Override
 	public List<MemoDTO> getMemoList() {
-		// TODO Auto-generated method stub
-		return null;
+		return memoDao.getMemoList();
 	}
 
 	@Override
 	public void memoInsert(MemoDTO dto) {
-		// TODO Auto-generated method stub
-
+		memoDao.memoInsert(dto);
 	}
 
 	@Override
 	public MemoDTO memoDetail(String _id) {
-		// TODO Auto-generated method stub
-		return null;
+		return memoDao.getmemoDetail(_id);
 	}
 
 	@Override
 	public void memoUpdate(MemoDTO dto) {
-		// TODO Auto-generated method stub
-
+		memoDao.memoUpdate(dto);
 	}
 
 	@Override
 	public void memoDelete(String _id) {
-		// TODO Auto-generated method stub
-
+		memoDao.memoDelete(_id);
 	}
 
 }

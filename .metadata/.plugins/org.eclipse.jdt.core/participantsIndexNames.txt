@@ -31,6 +31,8 @@ C:\Users\IGO\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspse
 \spring02\src\main\java
 C:\Users\IGO\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2736257551.index
 \spring06_security\src\main\java
+C:\Users\IGO\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1986802590.index
+\spring04_mongodb\src\main\java
 C:\Users\IGO\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\390734358.index
 \spring02\src\main\java
 C:\Users\IGO\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1122367527.index
