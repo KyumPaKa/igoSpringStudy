@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="bd"/>
+		<item key="selection" value="신고"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
-			<item value="gd"/>
-			<item value="dto"/>
-			<item value="pageEnd"/>
-			<item value="pageBegin"/>
-			<item value="prevBlock"/>
-			<item value="이전"/>
-			<item value="Pager"/>
-			<item value="test"/>
+			<item value="신고"/>
+			<item value="FbReplyServiceImpl"/>
+			<item value="fbReplyService"/>
+			<item value="freeBoardService"/>
+			<item value="UnknownBoardService"/>
+			<item value="ubReplyService"/>
+			<item value="fbReplyDao"/>
+			<item value="ubReplyDAO"/>
 		</list>
 		<list key="replacehistory">
-			<item value="bd"/>
-			<item value="suggestionDTO"/>
-			<item value="/"/>
+			<item value="replyService"/>
+			<item value="boardService"/>
+			<item value="replyDao"/>
+			<item value="replyDAO"/>
+			<item value="ubReplyDAO"/>
+			<item value="unknownBoardDAOImpl"/>
+			<item value="freeBoardDAOImpl"/>
+			<item value="FreeBoardDAOImpl"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="833"/>
-		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_X_ORIGIN" value="967"/>
+		<item key="DIALOG_Y_ORIGIN" value="265"/>
 		<item key="DIALOG_WIDTH" value="271"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
