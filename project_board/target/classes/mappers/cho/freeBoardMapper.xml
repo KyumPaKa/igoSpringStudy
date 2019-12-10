@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="freeBoard">
+	
+	<select id="list" resultType="com.igo.board.model.cho.dto.BoardDTO">
+	select * from (
+		select rownum sortrn, rfb.* from (
+			select rownum rn, fb.*, 
+			(select count(*) from fbReply where refIdx = fb.idx and deleteCheck = 0) replyCnt
+			 from (
+		        select * from freeBoard
+		        <include refid="search"/>
+		        and refIdx = #{refIdx} and deleteCheck = 0
+		        order by idx
+		    ) fb order by rn desc
+		) rfb
+	<![CDATA[
+	) where sortrn >= #{start} and sortrn <= #{end}
+	]]>
+	</select>
+	
+	<sql id="search">
+	<choose>
+       	<when test="search_option == 'all'">
+       	where (refWriter like '%'||#{keyword}||'%' or title like '%'||#{keyword}||'%' or content like '%'||#{keyword}||'%') 
+       	</when>
+       	<otherwise>
+       	where ${search_option} like '%'||#{keyword}||'%' 
+       	</otherwise>	        
+    </choose>
+	</sql>
+	
+	<select id="countArticle" resultType="int">
+	select count(*) from freeBoard
+	<include refid="search" /> 
+	and refIdx = #{refIdx} and deleteCheck = 0
+	</select>
+	
+	<select id="countArticle2" resultType="int">
+	select count(*) from freeBoard
+	<include refid="search" /> 
+	</select>
+	
+	<select id="view" resultType="com.igo.board.model.cho.dto.BoardDTO">
+	select * from freeBoard where idx = #{idx}
+	</select>
+	
+	<select id="selectFeel" resultType="int">
+	select feel from fbfeel where refIdx = #{refIdx} and refUserid = #{refUserid}
+	</select>
+	
+	<update id="increaseViewCnt">
+	update freeBoard set viewCnt = viewCnt + 1 where idx = #{idx}
+	</update>
+	
+	<update id="increaseGoodCnt">
+	update freeBoard set goodCnt = goodCnt + 1 where idx = #{idx}
+	</update>
+
+	<update id="decreaseGoodCnt">	
+	update freeBoard set goodCnt = goodCnt -1 where idx = #{idx}
+	</update>
+	
+	<update id="increaseBadCnt">
+	update freeBoard set badCnt = badCnt + 1 where idx = #{idx}
+	</update>
+
+	<update id="decreaseBadCnt">	
+	update freeBoard set badCnt = badCnt -1 where idx = #{idx}
+	</update>
+	
+	<insert id="insertFeel">
+	insert into fbFeel values((select nvl(max(idx), 0)+1 from fbFeel), #{refIdx}, #{refUserid}, #{feel})
+	</insert>
+	
+	<select id="selectFeelCnt" resultType="int">
+	select count(*) from fbfeel where refIdx = #{refIdx} and refUserid = #{refUserid} and feel = #{feel}
+	</select>
+	
+	<delete id="deleteFeel">
+	delete from fbfeel where refIdx = #{refIdx} and refUserid = #{refUserid}
+	</delete>
+	
+	<update id="delete">
+	update freeBoard set deleteCheck = 1 where idx = #{idx} 
+	</update>
+	
+	<select id="selectAttach" resultType="com.igo.board.model.cho.dto.AttachDTO">
+	select * from fbattach where refIdx = #{idx}
+	</select>
+	
+	<insert id="write">
+	insert into freeBoard(idx, refIdx, refWriter, title, content, secretCheck) 
+	values((select nvl(max(idx), 0) + 1 from freeBoard), #{refIdx}, #{refWriter}, #{title}, #{content}, #{secretCheck})
+	</insert>
+	
+	<insert id="insertAttach">
+	insert into fbAttach(idx, refIdx, fileName) values((select nvl(max(idx), 0) + 1 from fbAttach), #{refIdx}, #{fileName})
+	</insert>
+	
+	<update id="update">
+	update freeBoard set title = #{title}, content = #{content}, secretCheck = #{secretCheck}, updateDate = sysdate where idx = #{idx}
+	</update>
+	
+	<select id="replyCount" resultType="int">
+	select count(*) from fbReply where refIdx = #{idx} and deleteCheck = 0
+	</select>
+	
+	<delete id="fileDelete">
+	delete from fbAttach where idx = #{idx}
+	</delete>
+	
+	<select id="secretCheck" resultType="int">
+	select secretCheck from boardCategory where idx = #{refIdx}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

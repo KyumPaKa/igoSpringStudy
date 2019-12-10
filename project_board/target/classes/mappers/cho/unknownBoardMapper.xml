@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="unknownBoard">
+	
+	<select id="list" resultType="com.igo.board.model.cho.dto.BoardDTO">
+	select * from (
+		select rownum sortrn, rub.* from (
+			select rownum rn, ub.*, 
+			(select count(*) from ubReply where refIdx = ub.idx and deleteCheck = 0) replyCnt
+			 from (
+		        select * from unknownBoard
+		        <include refid="search"/>
+		        and refIdx = #{refIdx} and deleteCheck = 0
+		        order by idx
+		    ) ub order by rn desc
+		) rub
+	<![CDATA[
+	) where sortrn >= #{start} and sortrn <= #{end}
+	]]>
+	</select>
+	
+	<sql id="search">
+	<choose>
+       	<when test="search_option == 'all'">
+       	where (title like '%'||#{keyword}||'%' or content like '%'||#{keyword}||'%') 
+       	</when>
+       	<otherwise>
+       	where ${search_option} like '%'||#{keyword}||'%' 
+       	</otherwise>	        
+    </choose>
+	</sql>
+	
+	<select id="countArticle" resultType="int">
+	select count(*) from unknownBoard
+	<include refid="search" /> 
+	and refIdx = #{refIdx} and deleteCheck = 0
+	</select>
+	
+	<select id="countArticle2" resultType="int">
+	select count(*) from unknownBoard
+	<include refid="search" /> 
+	</select>
+	
+	<select id="view" resultType="com.igo.board.model.cho.dto.BoardDTO">
+	select * from unknownBoard where idx = #{idx}
+	</select>
+	
+	<select id="selectFeel" resultType="int">
+	select feel from ubfeel where refIdx = #{refIdx} and refUserid = #{refUserid}
+	</select>
+	
+	<update id="increaseViewCnt">
+	update unknownBoard set viewCnt = viewCnt + 1 where idx = #{idx}
+	</update>
+	
+	<update id="increaseGoodCnt">
+	update unknownBoard set goodCnt = goodCnt + 1 where idx = #{idx}
+	</update>
+
+	<update id="decreaseGoodCnt">	
+	update unknownBoard set goodCnt = goodCnt -1 where idx = #{idx}
+	</update>
+	
+	<update id="increaseBadCnt">
+	update unknownBoard set badCnt = badCnt + 1 where idx = #{idx}
+	</update>
+
+	<update id="decreaseBadCnt">	
+	update unknownBoard set badCnt = badCnt -1 where idx = #{idx}
+	</update>
+	
+	<insert id="insertFeel">
+	insert into ubFeel values((select nvl(max(idx), 0)+1 from ubFeel), #{refIdx}, #{refUserid}, #{feel})
+	</insert>
+	
+	<select id="selectFeelCnt" resultType="int">
+	select count(*) from ubfeel where refIdx = #{refIdx} and refUserid = #{refUserid} and feel = #{feel}
+	</select>
+	
+	<delete id="deleteFeel">
+	delete from ubfeel where refIdx = #{refIdx} and refUserid = #{refUserid}
+	</delete>
+	
+	<update id="delete">
+	update unknownBoard set deleteCheck = 1 where idx = #{idx} 
+	</update>
+	
+	<select id="selectAttach" resultType="com.igo.board.model.cho.dto.AttachDTO">
+	select * from ubAttach where refIdx = #{idx}
+	</select>
+	
+	<insert id="write">
+	insert into unknownBoard(idx, refIdx, refWriter, title, content) 
+	values((select nvl(max(idx), 0) + 1 from unknownBoard), #{refIdx}, #{refWriter}, #{title}, #{content})
+	</insert>
+	
+	<insert id="insertAttach">
+	insert into ubAttach(idx, refIdx, fileName) values((select nvl(max(idx), 0) + 1 from ubAttach), #{refIdx}, #{fileName})
+	</insert>
+	
+	<update id="update">
+	update unknownBoard set title = #{title}, content = #{content}, updateDate = sysdate where idx = #{idx}
+	</update>
+	
+	<select id="replyCount" resultType="int">
+	select count(*) from ubReply where refIdx = #{idx} and deleteCheck = 0
+	</select>
+	
+	<delete id="fileDelete">
+	delete from ubAttach where idx = #{idx}
+	</delete>
+	
+	<select id="secretCheck" resultType="int">
+	select secretCheck from boardCategory where idx = #{refIdx}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

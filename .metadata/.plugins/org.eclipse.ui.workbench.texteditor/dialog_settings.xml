@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="신고"/>
+		<item key="selection" value="insert"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
-			<item value="신고"/>
-			<item value="FbReplyServiceImpl"/>
-			<item value="fbReplyService"/>
-			<item value="freeBoardService"/>
-			<item value="UnknownBoardService"/>
-			<item value="ubReplyService"/>
-			<item value="fbReplyDao"/>
-			<item value="ubReplyDAO"/>
+			<item value="insert"/>
+			<item value="search"/>
+			<item value="입니다"/>
+			<item value="btnWrite"/>
+			<item value="삭제"/>
+			<item value="fileDown"/>
+			<item value="btnWriteFormBlack"/>
+			<item value="access-denied-handler"/>
+			<item value="userDeniedHandler"/>
 		</list>
 		<list key="replacehistory">
+			<item value="recontent"/>
+			<item value="/mm/"/>
+			<item value="mm/"/>
+			<item value="memo"/>
+			<item value="mmfeel"/>
 			<item value="replyService"/>
 			<item value="boardService"/>
 			<item value="replyDao"/>
-			<item value="replyDAO"/>
-			<item value="ubReplyDAO"/>
-			<item value="unknownBoardDAOImpl"/>
-			<item value="freeBoardDAOImpl"/>
-			<item value="FreeBoardDAOImpl"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

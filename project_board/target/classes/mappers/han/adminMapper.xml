@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="admin">
+	<select id="listAll" resultType="com.igo.board.model.han.blacklist.dto.BlackListDTO">
+		<include refid="paging_header"/>
+		select idx,refuserid,reason,regdate,name,email
+		from blacklist b
+		<include refid="search"/>
+		order by idx desc
+		<include refid="paging_footer"/>
+	</select>
+	
+	<select id="countArticle" resultType="int">
+	select count(*) 
+	from blacklist b
+	<include refid="search"/>
+	</select>
+	
+	<select id="sanctionList" resultType="com.igo.board.model.han.blacklist.dto.SanctionDTO">
+		<include refid="paging_header"/>
+		select idx,refboardcategory,refidx,refuserid,category,count,status,name,email
+		from sanction b
+		<include refid="search"/>
+		order by idx desc
+		<include refid="paging_footer"/>
+	</select>
+	
+	<select id="countsanction" resultType="int">
+	select count(*)
+	from sanction b
+	<include refid="search"/>
+	</select>
+	
+ 	<select id="countsun" resultType="com.igo.board.model.han.blacklist.dto.BoardUserDTO">
+	select 
+    (select count(idx) from freeboard where refwriter=#{userid} and deleteCheck = 0) +
+    (select count(idx) from unknownboard where refwriter=#{userid} and deleteCheck = 0) + 
+    (select count(idx) from memo where refwriter=#{userid} and deleteCheck = 0) board,
+    (select count(idx) from fbreply where refwriter=#{userid} and deleteCheck = 0)+
+    (select count(idx) from ubreply where refwriter=#{userid} and deleteCheck = 0) rply
+	from dual
+	</select>
+	
+	<select id="memberList" resultType="com.igo.board.model.han.blacklist.dto.BoardUserDTO">
+	<include refid="paging_header"/>
+		select userid,name,email,address,joindate,authority
+		from boarduser
+		<include refid="searchmember"/>
+		
+		order by joindate desc
+		<include refid="paging_footer"/>
+	</select>
+	
+	<select id="countmember" resultType="int">
+	select count(*)
+	from boarduser 
+	<include refid="searchmember"/>
+	</select>
+	
+	<update id="clearBlackList">
+	update boarduser set authority='ROLE_MEMBER'
+	where userid=#{refuserid}
+	</update>
+	
+	<update id="updateblacklist">
+	update sanction set status='처리완료'
+	where refuserid=#{refuserid}
+
+	</update>
+	
+	<select id="reportcount" resultType="int">
+	select count(*)
+	from sanction
+	where refidx=#{refidx}
+	and refboardcategory = #{refboardcategory}
+	and category=#{category}
+	</select>
+	
+	<delete id="deleteBlackList">
+	delete  from blacklist where refuserid=#{refuserid}
+	</delete>
+	
+	<update id="changeLevel">
+	update boarduser set authority=#{authority}
+	where userid=#{refuserid}
+	</update>
+	
+	<select id="getreportreason" resultType="com.igo.board.model.han.blacklist.dto.SanctionDTO">
+	select category from sanction where refuserid=#{refuserid} and status='처리전'
+	</select>
+	
+	<update id="reportplus">
+	update sanction set count=count+1 
+	where refidx=#{refidx}
+	and refboardcategory = #{refboardcategory}
+	and category=#{category}
+	</update>
+	
+	<select id="blackreason" resultType="String">
+	select reason from blacklist where refuserid=#{refuserid}
+	</select>
+	
+	<update id="black">
+	update blacklist set reason = #{category}
+	where refuserid=#{refuserid}
+	</update>
+	
+	<update id="blackreg">
+	update boarduser set authority = 'ROLE_BLACK'
+	where userid=#{refuserid}
+	</update>
+	
+	<delete id="clearSanction">
+	delete from sanction where refuserid=#{refuserid}
+	</delete>
+	
+	<select id="checkblack" resultType="int">
+	select count(refuserid)
+    from blacklist
+    where refuserid = #{refuserid}
+	</select>
+	<sql id="searchmember">
+		<choose>
+			<when test="search_option == 'all'">
+				where(name like '%'||#{keyword}||'%'
+				or email like '%'||#{keyword}||'%'
+				or userid like '%'||#{keyword}||'%')
+				and userid != 'a'
+			</when>
+			<otherwise>
+				where ${search_option} like '%'||#{keyword}||'%'
+				and userid != 'a'
+			</otherwise>
+		</choose>
+	</sql>
+
+	<select id="reportView" resultType="com.igo.board.model.cho.dto.BoardDTO">
+	select *
+	from ${refidx}
+	where idx=#{idx}
+	</select>
+	
+	<select id="rplyreportView" resultType="com.igo.board.model.cho.dto.BoardDTO">
+	select *
+	from ${refidx}
+	where idx=#{idx}
+	</select>
+	
+	<insert id="insertreport">
+	insert into sanction
+	values((select nvl(max(idx),0)+1 from sanction),#{refboardcategory},#{refidx},#{refuserid},#{category},1,default)
+	</insert>
+	
+	<insert id="insertblacklist">
+	insert into blacklist
+	values((select nvl(max(idx),0)+1 from blacklist),
+	#{refuserid},#{category},sysdate)
+	</insert>
+
+	<sql id="paging_header">
+		select *
+		from(
+			select rownum as rn, A.*
+			from(
+	</sql>
+	<sql id="paging_footer">
+		)A
+		)where rn between #{start} and #{end}
+	</sql>
+	
+	<sql id="search">
+		<choose>
+			<when test="search_option == 'all'">
+				join boarduser u on(b.refuserid=u.userid)
+				where(u.name like '%'||#{keyword}||'%'
+				or u.email like '%'||#{keyword}||'%'
+				or u.userid like '%'||#{keyword}||'%')
+			</when>
+			<otherwise>
+				join boarduser u on(b.refuserid=u.userid)
+				where ${search_option} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
