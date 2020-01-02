@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="insert"/>
+		<item key="selection" value="FinGridData"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
-			<item value="insert"/>
-			<item value="search"/>
-			<item value="입니다"/>
-			<item value="btnWrite"/>
-			<item value="삭제"/>
-			<item value="fileDown"/>
-			<item value="btnWriteFormBlack"/>
-			<item value="access-denied-handler"/>
-			<item value="userDeniedHandler"/>
+			<item value="finGridData"/>
+			<item value="param"/>
+			<item value="FINSAI01GL03"/>
+			<item value="action"/>
+			<item value="initGrid"/>
+			<item value="getTabAction"/>
+			<item value="FINSAI01MV01"/>
+			<item value="INVCMP02MV01"/>
 		</list>
 		<list key="replacehistory">
 			<item value="recontent"/>
