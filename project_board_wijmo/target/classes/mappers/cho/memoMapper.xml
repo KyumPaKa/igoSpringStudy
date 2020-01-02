@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="memo">
+	
+	<select id="list" resultType="com.igo.board.model.cho.dto.BoardDTO">
+	select * from (
+		select rownum sortrn, rn, idx, refIdx, refWriter, content, postDate, updateDate, goodCnt, badCnt, deleteCheck, nvl(feel, 3) feel from (
+			select rownum rn, fb.*, (select feel from mmFeel where refidx = fb.idx and refUserid = fb.refWriter) feel from (
+				select * from memo
+		        where refIdx = #{refIdx} and deleteCheck = 0
+		        order by idx
+		    ) fb order by rn desc
+		)
+	<![CDATA[
+	) where sortrn >= #{start} and sortrn <= #{end}
+	]]>
+	</select>
+	
+	<select id="countArticle" resultType="int">
+	select count(*) from memo where refIdx = #{refIdx} and deleteCheck = 0
+	</select>
+	
+	<select id="selectFeel" resultType="int">
+	select feel from mmfeel where refIdx = #{refIdx} and refUserid = #{refUserid}
+	</select>
+	
+	<update id="increaseViewCnt">
+	update memo set viewCnt = viewCnt + 1 where idx = #{idx}
+	</update>
+	
+	<update id="increaseGoodCnt">
+	update memo set goodCnt = goodCnt + 1 where idx = #{idx}
+	</update>
+
+	<update id="decreaseGoodCnt">	
+	update memo set goodCnt = goodCnt -1 where idx = #{idx}
+	</update>
+	
+	<update id="increaseBadCnt">
+	update memo set badCnt = badCnt + 1 where idx = #{idx}
+	</update>
+
+	<update id="decreaseBadCnt">	
+	update memo set badCnt = badCnt -1 where idx = #{idx}
+	</update>
+	
+	<insert id="insertFeel">
+	insert into mmfeel values((select nvl(max(idx), 0)+1 from mmfeel), #{refIdx}, #{refUserid}, #{feel})
+	</insert>
+	
+	<select id="selectFeelCnt" resultType="int">
+	select count(*) from mmfeel where refIdx = #{refIdx} and refUserid = #{refUserid} and feel = #{feel}
+	</select>
+	
+	<delete id="deleteFeel">
+	delete from mmfeel where refIdx = #{refIdx} and refUserid = #{refUserid}
+	</delete>
+	
+	<update id="delete">
+	update memo set deleteCheck = 1 where idx = #{idx} 
+	</update>
+	
+	<insert id="write">
+	insert into memo(idx, refIdx, refWriter, content) 
+	values((select nvl(max(idx), 0) + 1 from memo), #{refIdx}, #{refWriter}, #{content})
+	</insert>
+	
+	<update id="update">
+	update memo set content = #{content}, updateDate = sysdate where idx = #{idx}
+	</update>
+	
+</mapper>

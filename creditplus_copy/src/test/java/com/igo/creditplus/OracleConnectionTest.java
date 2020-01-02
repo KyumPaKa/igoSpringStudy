@@ -10,9 +10,9 @@ import org.slf4j.LoggerFactory;
 public class OracleConnectionTest {
 	private static final Logger logger = LoggerFactory.getLogger(OracleConnectionTest.class);
 	private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
-	private static final String URL = "jdbc:oracle:thin:@192.168.0.56:1521:ORCL";
-	private static final String USER = "igo_aju";
-	private static final String PW = "igo123";
+	private static final String URL = "jdbc:oracle:thin:@192.168.0.180:1521/ORCL";
+	private static final String USER = "igoexe";
+	private static final String PW = "igoexe";
 	
 	@Test
 	public void testConnection() throws Exception {

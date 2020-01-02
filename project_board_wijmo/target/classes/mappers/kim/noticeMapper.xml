@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="com.igo.board.model.kim.dao.NoticeDAO">
+
+	<select id="noticeListMP" resultType="com.igo.board.model.kim.dto.NoticeDTO">
+	SELECT NOTICEBOARD.IDX, REFWRITER, TITLE, CONTENT, POSTDATE, UPDATEDATE, VIEWCNT FROM
+    NOTICEBOARD
+	</select>
+	
+	<select id="selectedListMP" resultType="com.igo.board.model.kim.dto.NoticeDTO">
+	SELECT NOTICEBOARD.IDX, REFWRITER, TITLE, CONTENT, POSTDATE, UPDATEDATE, VIEWCNT, REFIDX, REFPOINT FROM
+	    NOTICEBOARD, NOTICEPOINT
+	    	WHERE NOTICEBOARD.IDX = NOTICEPOINT.refIDX
+	    	AND NOTICEPOINT.REFPOINT = #{refIdx}
+	    	ORDER BY IDX DESC
+	</select>
+	
+	<select id="noticeOneMP" resultType="com.igo.board.model.kim.dto.NoticeDTO">
+	<![CDATA[
+	SELECT NOTICEBOARD.IDX idx, REFWRITER, TITLE, CONTENT, POSTDATE, UPDATEDATE, VIEWCNT, REFIDX, REFPOINT FROM
+	    NOTICEBOARD inner join NOTICEPOINT
+	    on NOTICEBOARD.IDX = refIDX
+	    AND NOTICEBOARD.IDX = #{idx}
+     ]]>
+	</select>
+	
+	<select id="noticeSelectedMP" resultType="com.igo.board.model.kim.dto.NoticeDTO">
+	SELECT IDX, REFWRITER, TITLE, CONTENT, POSTDATE, UPDATEDATE, VIEWCNT 
+	    FROM NOTICEBOARD
+	    WHERE IDX = #{idx}
+	</select>
+	
+	<update id="noticeUpdateMP">
+		UPDATE NOTICEBOARD SET 
+   			TITLE = #{title},
+   			CONTENT = #{content},
+   			UPDATEDATE = SYSDATE
+		        WHERE IDX = #{idx}
+	</update>
+		
+	<insert id="noticeInsertMP">
+	INSERT INTO NOTICEBOARD (IDX, REFWRITER, TITLE, CONTENT, POSTDATE, UPDATEDATE, VIEWCNT)
+    	VALUES ((select nvl(max(IDX), 0)+1 from NOTICEBOARD), #{refwriter}, #{title}, #{content}, sysdate, sysdate, 0)
+	</insert>
+	
+	<delete id="noticeDeleteMP">
+		DELETE FROM NOTICEBOARD WHERE IDX = #{idx}
+	</delete>
+	
+	<!-- NOTICEPOINT  -->
+	
+	<select id="noticePtListMP" resultType="com.igo.board.model.kim.dto.NoticeDTO">
+		SELECT REFIDX, REFPOINT 
+			FROM NOTICEPOINT
+	</select>
+	
+	<select id="noticePtOneMP" resultType="com.igo.board.model.kim.dto.NoticeDTO">
+		SELECT idx, REFIDX, REFPOINT 
+			FROM NOTICEPOINT
+    		WHERE idx = #{idx}
+	</select>
+	
+	<update id="noticePtUpdateMP">
+		UPDATE NOTICEPOINT SET 
+   			REFIDX = #{refidx},
+		    REFPOINT = #{refpoint}
+		    	WHERE IDX = #{idx};
+	</update>
+		
+	<insert id="noticePtInsertMP">
+	INSERT INTO NOTICEPOINT (idx, REFIDX, REFPOINT)
+	    values ((select nvl(max(idx), 0) + 1 from NOTICEPOINT), (select nvl(max(idx), 0) from NOTICEBOARD), #{refidx})
+	</insert>
+	
+	<delete id="noticePtDeleteMP">
+		DELETE FROM NOTICEPOINT WHERE REFIDX = #{idx}
+	</delete>
+	
+	<select id="noticeGetIdx" resultType="com.igo.board.model.kim.dto.NoticeDTO">
+		select nvl(max(idx), 0) as idx from NOTICEBOARD
+	</select>
+	
+	<update id="noticeVc">
+		UPDATE NOTICEBOARD SET VIEWCNT = VIEWCNT + 1
+	    WHERE IDX = #{idx}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

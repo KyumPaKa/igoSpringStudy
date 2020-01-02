@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="ubReply">
+	
+	<insert id="write">
+	<choose>
+		<when test="groupIdx == 0">
+		insert into ubReply(idx, refIdx, groupIdx, content, refWriter) 
+		values((select nvl(max(idx), 0) + 1 from ubReply), #{refIdx}, (select nvl(max(idx), 0) + 1 from ubReply), #{content}, #{refWriter})
+		</when>
+		<otherwise>
+		insert into ubReply(idx, refIdx, groupIdx, groupNo, depth, content, refWriter) 
+		values((select nvl(max(idx), 0) + 1 from ubReply), #{refIdx}, #{groupIdx}, 2, 1, #{content}, #{refWriter})
+		</otherwise>
+	</choose>
+	</insert>
+	
+	<select id="count" resultType="int">
+	select count(*) from ubReply 
+		where (refIdx = #{refIdx} and deleteCheck = 0)
+			or groupidx in (
+				            select groupidx from (
+				                (select groupidx, count(*) cnt from ubReply where refIdx = #{refIdx} group by groupidx)
+				            ) where cnt != 1
+			        	)
+	</select>
+	
+	<select id="list" resultType="com.igo.board.model.cho.dto.ReplyDTO">
+	select * from (
+		select rownum rn, fb.* from (
+	        select * from ubReply where (refIdx = #{refIdx} and deleteCheck = 0)
+		        or groupidx in (
+		            select groupidx from (
+		                (select groupidx, count(*) cnt from ubReply where refIdx = #{refIdx} group by groupidx)
+		            ) where cnt != 1
+	        	)
+	        order by groupidx, idx
+	    ) fb order by rn
+	<![CDATA[
+	) where rn >= #{start} and rn <= #{end}
+	]]>
+	</select>
+	
+	<update id="delete">
+	update ubReply set deleteCheck = 1 where idx = #{idx}
+	</update>
+	
+	<update id="update">
+	update ubReply set content = #{content}, updateDate = sysdate where idx = #{idx}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

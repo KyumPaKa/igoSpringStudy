@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="com.igo.board.model.kim.dao.CategoryDAO">
+
+	<select id="categoryListMP" resultType="com.igo.board.model.kim.dto.CategoryDTO">
+		SELECT IDX, ORDERNO, CGIDX, NAME, SECRETCHECK FROM BOARDCATEGORY
+	</select>
+	
+	<select id="categoryOneMP" resultType="com.igo.board.model.kim.dto.CategoryDTO">
+		SELECT IDX, ORDERNO, CGIDX, NAME, SECRETCHECK FROM BOARDCATEGORY 
+    		WHERE IDX = #{idx}
+	</select>
+	
+	<update id="categoryUpdateMP">
+		UPDATE BOARDCATEGORY SET 
+   			ORDERNO = #{ORDERNO},
+		    NAME = #{NAME},
+		    SECRETCHECK = #{SECRETCHECK} 
+		        WHERE IDX = #{IDX};
+	</update>
+		
+	<insert id="categoryInsertMP">
+	INSERT INTO boardcategory (IDX, ORDERNO, CGIDX, NAME, SECRETCHECK) 
+    	values ((select nvl(max(idx), 0)+1 from BOARDCATEGORY), #{ORDERNO}, #{CGIDX}, #{NAME}, #{SECRETCHECK})
+	</insert>
+	
+	<delete id="categoryDeleteMP">
+		DELETE FROM BOARDCATEGORY WHERE IDX = #{IDX}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

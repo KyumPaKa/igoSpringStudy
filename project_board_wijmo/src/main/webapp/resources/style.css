@@ -1,0 +1,13 @@
+@charset "UTF-8";
+a:LINK { text-decoration: none; color:blue; }
+a:hover { text-decoration: underline; color: red; }
+a:VISITED { text-decoration: none; color:blue; }
+a:ACTIVE { text-decoration: none; color:yellow; }
+<style type="text/css">
+table, th, td {
+    border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}
+</style>
