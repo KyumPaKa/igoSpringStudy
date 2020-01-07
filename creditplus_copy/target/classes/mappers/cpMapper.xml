@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="cp">
+	
+	<select id="selectCompany" resultType="com.igo.creditplus.model.dto.CompanyDTO">
+		SELECT * FROM COMPANY
+		<if test="empno != 0">
+		WHERE EMPNO = #{empno}
+		</if>
+	</select>
+	
+	<select id="selectComHistory" resultType="com.igo.creditplus.model.dto.HistoryDTO">
+	SELECT * FROM COM_HISTORY WHERE EMPNO = #{empno} ORDER BY HISNO
+	</select>
+	
+	<insert id="comHistorySave">
+	MERGE INTO COM_HISTORY
+    USING DUAL
+    ON ( EMPNO = #{empno} AND HISNO = #{hisno} )
+	WHEN MATCHED
+	THEN
+	   UPDATE  
+	   SET HISCONTENT = #{hiscontent}, 
+	   	   HISDATE = #{hisstr}
+	WHEN NOT MATCHED
+	THEN
+	   INSERT  
+	   VALUES(#{empno}, (SELECT COUNT(*) + 1 FROM COM_HISTORY), #{hiscontent}, #{hisstr})
+	</insert>
+	
+	<select id="comSearchByName" resultType="com.igo.creditplus.model.dto.CompanyDTO">
+	SELECT * FROM COMPANY WHERE EMPNAME LIKE '%'|| #{EMPNAME} || '%'
+	</select>
+	
+	<select id="selectEval" resultType="com.igo.creditplus.model.dto.EvalDTO">
+	SELECT * FROM EVAL_CON EC INNER JOIN ACCOUNT_ITEM AI ON EC.ACCID = AI.ACCID AND EC.EMPNO = #{empno} AND AI.ACCGROUP = #{accgroup}
+	 and evadate like '%' || #{evadate} || '%'
+	</select>
+	
+	<select id="selectCreditCon" resultType="com.igo.creditplus.model.dto.CompanyDTO">
+	SELECT TO_CHAR(EVAL_CON.EVADATE, 'yy/mm/dd') DAT, COMPANY.EMPNO, EMPNAME, EMPDIV, MODELDIV, GRADE, EVASTATE
+	FROM COMPANY 
+	INNER JOIN EVAL_CON 
+	ON EVAL_CON.EMPNO = COMPANY.EMPNO 
+	AND COMPANY.EMPNO = #{empno} 
+	GROUP BY TO_CHAR(EVAL_CON.EVADATE, 'yy/mm/dd'), COMPANY.EMPNO, EMPNAME, EMPDIV, MODELDIV, GRADE, EVASTATE
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+@charset "UTF-8";
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.explanArea {
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+.htitle {
+	font-size: 25px;
+}
+.ctitle {
+	font-weight: bold;
+}
+ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+li {
+    margin: 0 0 0 0;
+    padding: 0 0 0 10px;
+    border : 0;
+    float: left;
+    width: 32%;
+    text-align: left;
+}
+.divbox {
+	background-color: #F0FFFF;
+	width: 100px;
+}
+.btnArea {
+	text-align: right;
+}
+.btn {
+	height: 30px;
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+
+.wj-flexgrid {  
+  max-height: 500px;
+  height: 500px;
+  margin:10px 0;
+}
+
+/* 사용자 정의 Wijmo Style */
+/* Material Style */
+
+.wj-content {
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #333333;
+}
+.wj-header {
+    background-color: #3e50b4;
+    color: #ffffff;
+}
+.wj-state-selected {
+    background-color: #ff3f80;
+    color: #ffffff;
+}
+.wj-state-multi-selected {
+    background-color: #f2a9c2;
+    color: #ffffff;
+}                    
+.wj-tooltip {
+    background-color: #ffffe5;
+    color: #333333;
+}
+.wj-cell:not(.wj-header):not(.wj-group):not(.wj-alt):not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: #ffffff;
+    color: #333333;
+}
+.wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: #f9f9f9;
+    color: #333333;
+}

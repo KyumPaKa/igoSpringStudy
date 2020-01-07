@@ -1,13 +1,15 @@
 DROP TABLE EVAL_CON PURGE;
 DROP TABLE ACCOUNT_ITEM PURGE;
 DROP TABLE COMPANY PURGE;
+DROP TABLE COM_HISTORY PURGE;
 
 CREATE TABLE COMPANY (
     EMPNO VARCHAR2(10) CONSTRAINT COMPANY_PK PRIMARY KEY,
     EMPNAME VARCHAR2(100),
     EMPDIV VARCHAR2(1),
     MODELDIV VARCHAR2(1),
-    GRADE VARCHAR2(1)
+    GRADE VARCHAR2(1),
+    EVASTATE VARCHAR2(1)
 );
 
 CREATE TABLE ACCOUNT_ITEM (
@@ -19,10 +21,65 @@ CREATE TABLE EVAL_CON (
     EVAID VARCHAR2(10),
     EMPNO VARCHAR2(10),
     ACCID VARCHAR2(10),
-    PRICE VARCHAR2(18),
+    PRICE NUMBER(18),
     EVADATE TIMESTAMP(9),
-    EVASTATE VARCHAR2(1),
     CONSTRAINT EVAL_CON_PK PRIMARY KEY (EVAID, ACCID, EMPNO),
     CONSTRAINT ACCID_FK FOREIGN KEY(EMPNO) REFERENCES COMPANY(EMPNO),
-    CONSTRAINT EMPNO_FK FOREIGN KEY(ACCID) REFERENCES ACCOUNT_ITEM(ACCID)
+    CONSTRAINT EVAL_CON_EMPNO_FK FOREIGN KEY(ACCID) REFERENCES ACCOUNT_ITEM(ACCID)
 );
+
+create table COM_HISTORY (
+     EMPNO VARCHAR2(10),
+     HISNO VARCHAR2(10),
+     HISCONTENT VARCHAR2(300),
+     HISDATE TIMESTAMP(9),
+     CONSTRAINT COM_HISTORY_PK PRIMARY KEY (EMPNO, HISNO),
+     CONSTRAINT COM_HISTORY_EMPNO_FK FOREIGN KEY(EMPNO) REFERENCES COMPANY(EMPNO)
+);
+
+INSERT INTO COMPANY VALUES('1', 'IGO', '3', '1', '1', '3');
+INSERT INTO COMPANY VALUES('2', '삼성', '1', '4', '2', '3');
+
+INSERT INTO ACCOUNT_ITEM VALUES('1', '재무상태표', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('2', ' 유동자산', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('3', '  현금', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('4', '  예금', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('5', '  기타', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('6', ' 비유동자산', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('7', '  토지', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('8', '  시설', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('9', '  건물', 1);
+INSERT INTO ACCOUNT_ITEM VALUES('10', '손익계산서', 2);
+INSERT INTO ACCOUNT_ITEM VALUES('11', ' 매출액', 2);
+INSERT INTO ACCOUNT_ITEM VALUES('12', '  원가', 2);
+INSERT INTO ACCOUNT_ITEM VALUES('13', '  순수익', 2);
+INSERT INTO ACCOUNT_ITEM VALUES('14', ' 관리비', 2);
+INSERT INTO ACCOUNT_ITEM VALUES('15', '  차량비', 2);
+INSERT INTO ACCOUNT_ITEM VALUES('16', '  급여', 2);
+INSERT INTO ACCOUNT_ITEM VALUES('17', '자본변동표', 3);
+INSERT INTO ACCOUNT_ITEM VALUES('18', ' 자본금', 3);
+INSERT INTO ACCOUNT_ITEM VALUES('19', ' 부채', 3);
+
+insert into eval_con values(1, 1, 1, 5654754789, sysdate);
+insert into eval_con values(2, 1, 2, 1235565467547, sysdate);
+insert into eval_con values(3, 1, 3, 65264235245, sysdate);
+insert into eval_con values(4, 1, 4, 24345234542564547, sysdate);
+insert into eval_con values(5, 1, 5, 86862345754635, sysdate);
+insert into eval_con values(6, 1, 6, 34658947472457, sysdate);
+insert into eval_con values(7, 1, 7, 512464554300, sysdate);
+insert into eval_con values(8, 1, 8, 565624234353523, sysdate);
+insert into eval_con values(9, 1, 9, 4315744352235, sysdate);
+
+insert into eval_con values(10, 1, 10, 23545234432, sysdate);
+insert into eval_con values(11, 1, 11, 23452423512, sysdate);
+insert into eval_con values(12, 1, 12, 5463245243, sysdate);
+insert into eval_con values(13, 1, 13, 78673448, sysdate);
+insert into eval_con values(14, 1, 14, 87876743435, sysdate);
+insert into eval_con values(15, 1, 15, 4554235833, sysdate);
+insert into eval_con values(16, 1, 16, 7934218, sysdate);
+
+insert into eval_con values(17, 1, 17, 9673265243, sysdate);
+insert into eval_con values(18, 1, 18, 125753217, sysdate);
+insert into eval_con values(19, 1, 19, 478126898, sysdate);
+
+COMMIT;

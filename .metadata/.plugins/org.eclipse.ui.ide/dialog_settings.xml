@@ -67,6 +67,7 @@
 		<item value="org.springframework.ide.eclipse.xml.namespaces.feature:3.9.10.201908091135-CI-B2297"/>
 	</list>
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\IGO\Desktop\workspace\project_board_wijmo"/>
 		<item value="D:\project_board\project_board"/>
 		<item value="D:\creditplus"/>
 		<item value="C:\Users\IGO\Desktop\creditplus"/>

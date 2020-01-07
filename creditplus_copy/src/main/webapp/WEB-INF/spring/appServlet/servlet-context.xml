@@ -23,6 +23,6 @@
 	
 	<context:component-scan base-package="com.igo.creditplus" />
 	
-	
+	<default-servlet-handler />
 	
 </beans:beans>
